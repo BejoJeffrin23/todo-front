@@ -1,0 +1,90 @@
+<div style="background-color: black;height: 130vh;">
+  <div class="container-fluid">
+          <div class="row">
+            <div class="displayBlockMobile" style="width:100%">
+                <div class="col-sm-12 p-0">
+                    <nav class="navbar navbar-expand-md navbar-fixed   " style="background-color: blue;">
+                        <a ><img src="../../assets/logo.jpg" class="img"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse people-list navbar-collapse" id="navbarSupportedContent">
+                            <ul class="list">
+                                <li routerLink="/{{userId}}/dash">home</li>
+                                <li  [routerLink]="['/users',userId]">users</li>
+                              <li [routerLink]="['/request',userId]">friend-request</li>
+                              <li [routerLink]="['/signin']">logout</li>
+                            
+                            </ul>
+                
+                          </div>
+                
+                        </nav>
+                
+                    </div>
+                    </div>
+                  </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12" *ngIf="friendsCount==0">
+                  <h1>No friends</h1>
+                </div>
+              </div>
+            </div>
+          <div class="container" *ngIf="friendsCount>0">
+              <h1 style="color:black">friends</h1>
+            <div class="row friendlist" *ngFor="let datass of datas">
+             
+              <div class="col-md-4">
+                <h4 class="friendname">{{datass.receiverFirstName}} {{datass.receiverLastName}}</h4>
+              </div>
+              <div class="col-md-4">
+              <h5 class="viewtodo" (click)="getevent(datass.receiverId)">Viewtodo</h5>
+              </div>
+              <div class="col-md-4">
+                  <h5 class="unfriend" (click)="unfriend(datass.friendreqId)">Unfriend</h5>
+              </div>
+           
+            </div>
+          </div>
+ 
+        
+              <div class="container" style="margin-top:30px;">
+                <div class="row" *ngIf="length>0">
+                  <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <h1 class="header">{{this.fullname}} TODO</h1>
+                        <h1><button class="btn btn-secondary"s (click)="undo()">undo</button></h1>
+                        
+                        <div class="row">
+                          <div class="table-responsive">
+                            <table class="table">
+                              <table class="table table-borderless">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Event</th>
+                                    <th scope="col">Done</th>
+                                    <th scope="col">delete</th>
+                                    <th scope="col">edit</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr  *ngFor="let datas of event">
+                                    <td>{{datas.createdOn | date}}</td>
+                                    <td>{{datas.event | uppercase}}</td>
+                                    <td>{{datas.Done}}</td>
+                                    <td><button class="delete" style="color:white"  (click)="delete(datas.statusId,datas.userId)" >delete</button></td>
+                                    <td><button class="edit" style="color:white" [routerLink]="['/friend-event-edit',datas.statusId]">edit</button></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </table>
+                          </div>
+                              </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+            </div>

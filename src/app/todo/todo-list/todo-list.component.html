@@ -1,0 +1,63 @@
+<div style="background-color: black;height:115vh;overflow-x: hidden;">
+<div class="row">
+  <div class="displayBlockMobile" style="width:100%">
+      <div class="col-sm-12 p-0">
+          <nav class="navbar navbar-expand-md navbar-fixed  " style="background-color:blue;">
+              <a ><img src="../../assets/logo.jpg" class="img"></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse people-list navbar-collapse" id="navbarSupportedContent">
+                  <ul class="list">
+                    <li  [routerLink]="['/users',userId]">users</li>
+                    <li  [routerLink]="['/friends',userId]" >firend-list</li>
+                    <li [routerLink]="['/request',userId]">friend-request</li>
+                    <li [routerLink]="['/signin']">logout</li>
+                  
+                  </ul>
+      
+                </div>
+      
+              </nav>
+      
+          </div>
+          </div>
+        </div>
+  <div class="check">
+    <button class="btn btn-primary button" (click)="addEvent()">
+      <h1>+</h1>
+    </button>
+  </div>
+
+  <div class="table-responsive gap" *ngIf="events">
+    <table class="table table-bordered">
+      <thead style="background-color: lightblue">
+        <tr>
+          <th class="font" style="text-align:center">Todo</th>
+          <th class="font" style="text-align:center">Date</th>
+          <th class="font" style="text-align:center">Edit/delete</th>
+        </tr>
+      </thead>
+  
+      <tbody *ngFor="let event of events| paginate: { itemsPerPage: count, currentPage: p }" class="hover">
+        <tr  >
+          <td class="font" style="width: 36%;text-align: center">
+            {{event.event}}
+          </td>
+          <td class="font" style="width: 17%;text-align: center;">
+           {{event.startDay}}-{{event.startMonth}}-{{event.startYear}}
+          </td>
+          <td class="font" style="width: 37%;text-align: center;">
+                <button class="btn btn-primary" (click)="deleteEvent(event.eventId)"><i class="fas fa-trash-alt"></i></button>
+                <button class="btn btn-primary" routerLink="/{{event.eventId}}/edit"><i class="fas fa-edit"></i></button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="background-color: blue;">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  </div>
+
+</div>

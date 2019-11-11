@@ -1,0 +1,75 @@
+@font-face{
+    font-family:"Phantom Ghost";
+    src:url("../../../assets/font/Phantom Ghost.ttf") format("woff"),
+    url("../../../assets/font/Phantom Ghost.ttf") format("opentype"),
+    url("../../../assets/font/Phantom Ghost.ttf") format("truetype");
+}
+
+.page{
+    background: black;
+    height: 100%;
+}
+.head{
+    background-color: black;
+    border-radius: 12px
+}
+
+.sides{
+    border: 2px solid aqua;
+    margin-top: 9vh;
+    border-radius: 10px;
+    background-color: blue;
+}
+h4{
+    text-align: center
+}
+
+
+.heading{
+    text-align: center;
+}
+.log{
+    text-align: center;
+    border-radius: 100%;
+    height: 60px;
+    width: 60px;
+}
+
+
+@media screen and (min-height:1024px)
+{.page{
+height: 105vh;
+}
+.sides{
+    height: 95vh;
+}}
+
+@media screen and (min-height:1200px)
+{
+    .sides{
+        height: 80vh;
+    }
+}
+
+.loader {
+    text-align: center;
+    border-left:3px solid black;
+    border-right:3px solid black;
+    border-bottom:3px solid white;
+    border-top:3px solid white;
+    border-radius:30px;
+    width:30px;
+    margin-left:auto;
+    margin-right: auto;
+    height:30px;
+    animation:rotate 1s infinite linear;
+  }
+
+ @keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+ } 

@@ -1,0 +1,65 @@
+<div style="background-color: black;height:100vh;overflow-x: hidden;">
+<div class="row">
+  <div class="displayBlockMobile" style="width:100%">
+      <div class="col-sm-12 p-0">
+          <nav class="navbar navbar-expand-md navbar-fixed  " style="background-color:blue;">
+              <a ><img src="../../assets/logo.jpg" class="img"></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse people-list navbar-collapse" id="navbarSupportedContent">
+                  <ul class="list">
+                   <li [routerLink]="['/event',userId]">home</li>
+                    <li [routerLink]="['/createevent',userId]">createtodo</li>
+                    <li  [routerLink]="['/users',userId]">users</li>
+                    <li [routerLink]="['/friends',userId]">friends</li>
+                    <li [routerLink]="['/signin']">logout</li>
+                  
+                  </ul>
+      
+                </div>
+      
+              </nav>
+  <br>
+  <h1 class="font">I will always make you remember it</h1>
+  <br>
+  
+  <div class="row p-0 m-0 im ">
+      
+  
+    <div class="col-sm"></div>
+    
+    <div class="sides">
+       
+      <div class="col-sm p-5">
+        <h3 class="h">Create todo</h3>
+        <form #eventForm="ngForm" (submit)="create()">
+          <div class="form-group">
+            <label>Title:</label>
+            <input type="text" [(ngModel)]="title" name="title" class="form-control" placeholder="Title of event"
+              required>
+          </div>
+          
+          <div class="input-group">
+            <label>Date: &nbsp;</label>
+            <input class="form-control" placeholder="yyyy-mm-dd" name="startDate" ngbDatepicker [(ngModel)]="startDate"
+              #d="ngbDatepicker" required>
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                <i class="fa fa-calendar"></i>
+              </button>
+            </div>
+          </div>
+          <br>
+         
+          <button class="btn btn-success" [disabled]="eventForm.invalid" type="submit">Create</button>
+        </form>
+  
+      </div>
+  
+  
+    </div>
+  
+    <div class="col-sm"></div>
+  </div>
+      </div>

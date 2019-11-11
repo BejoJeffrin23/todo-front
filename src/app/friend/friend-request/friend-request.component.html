@@ -1,0 +1,65 @@
+<div style="background-color: black;height: 130vh;">
+  <div class="container-fluid">
+          <div class="row">
+            <div class="displayBlockMobile" style="width:100%">
+                <div class="col-sm-12 p-0">
+                    <nav class="navbar navbar-expand-md navbar-fixed   " style="background-color: blue;">
+                        <a ><img src="../../assets/logo.jpg" class="img"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse people-list navbar-collapse" id="navbarSupportedContent">
+                            <ul class="list">
+                                <li routerLink="/{{userId}}/dash">home</li>
+                                <li  [routerLink]="['/users',userId]">users</li>
+                              <li  [routerLink]="['/friends',userId]" >firend-list</li>
+                              <li [routerLink]="['/signin']">logout</li>
+                            
+                            </ul>
+                
+                          </div>
+                
+                        </nav>
+                
+                    </div>
+                    </div>
+                  </div>
+         
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12" *ngIf="!reqcount">
+                  <h1>No friend request</h1>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6" *ngIf="reqcount>0">
+                          <h1 class="header">firend-request </h1> 
+                            <p class="reqcount">{{reqcount}} new request</p>
+                            <div class="row center">
+                              <div class="table-responsive">
+                                <table class="table">
+                                  <table class="table table-borderless">
+                                    <thead>
+                                      <tr>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let datas of request">
+                                        <td *ngIf="datas.userId !=userId">{{datas.senderName}}</td>
+                                 
+                                        <td  *ngIf="datas.userId !=userId"><a class="request" style="color:white;" (click)="acceptrequest(datas.friendreqId)">acceptrequest</a></td>
+                                        <td  *ngIf="datas.userId !=userId"><a class="request" style="color:white;" (click)="deletefrndreq(datas.friendreqId)">deleterequest</a></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </table>
+                              </div>
+                                  </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+              </div>

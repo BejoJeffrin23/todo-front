@@ -1,0 +1,50 @@
+<div class="page">
+
+    <div class="row p-0 m-0 ">
+  
+      <div class="col-md"></div>
+  
+      <div class="col-sm p-5 sides">
+        <div class="head">
+          <h1 style="color:red;text-align: center;font-family:Phantom Ghost;text-transform:none;">TO DO</h1>
+  
+  
+          <h1 style="text-align: center"><img src="assets/logo.jpg" class="log"></h1>
+        </div>
+        <h3 style="text-align: center">Log-in</h3>
+  
+        <span>Email: </span>
+  
+        <label for="inputEmail" class="sr-only">Email address</label>
+  
+        <input type="email" id="inputEmail" class="form-control" [(ngModel)]="email" placeholder="Email address" required
+          autofocus>
+  
+        <br>
+  
+        <span>Password: </span>
+  
+        <label for="inputPassword" class="sr-only">Password</label>
+  
+        <input type="password" id="inputPassword" class="form-control" [(ngModel)]="password" placeholder="Password"
+          required>
+  
+        <br>
+  
+        <a [routerLink]="['/sendmail']" style="color: black;">
+          <p>Forgot password ?  Click here</p>
+        </a>
+  
+        <p class="loader" *ngIf="signuploader==false"></p>
+
+        <button class="btn btn-lg btn-primary btn-block" style="background-color: lightgreen;" type="button" (click)="signinFunction()">Log in</button>
+  
+  
+        <br>
+        <span>Don't have an account?<a [routerLink]="['/signup']" style="color: black">Sign up</a> </span>
+  
+      </div>
+      <div class="col-md"></div>
+  
+    </div>
+  </div>
