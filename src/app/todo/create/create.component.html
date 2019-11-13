@@ -13,7 +13,7 @@
                     <li [routerLink]="['/createevent',userId]">createtodo</li>
                     <li  [routerLink]="['/users',userId]">users</li>
                     <li [routerLink]="['/friends',userId]">friends</li>
-                    <li [routerLink]="['/signin']">logout</li>
+                    <li (click)="logout()">logout</li>
                   
                   </ul>
       

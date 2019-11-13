@@ -13,7 +13,7 @@
                                 <li routerLink="/{{userId}}/dash">home</li>
                                 <li  [routerLink]="['/users',userId]">users</li>
                               <li [routerLink]="['/request',userId]">friend-request</li>
-                              <li [routerLink]="['/signin']">logout</li>
+                              <li  (click)="logout()">logout</li>
                             
                             </ul>
                 

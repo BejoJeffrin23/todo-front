@@ -117,5 +117,27 @@ export class FriendListComponent implements OnInit {
      )
    }
   
+   public logout = () => {
+
+    this.service.logout().subscribe((apiResponse) => {
+
+      if (apiResponse.status === 200) {
+        Cookie.delete('authToken');
+        Cookie.delete('userName');
+        Cookie.delete('userId')
+        this.router.navigate(['/login']);
+
+      } else {
+        this.toastr.error(apiResponse.message)
+      } // end condition
+
+    }, (err) => {
+      this.toastr.error('Internal Server Error occured')
+
+    });
+
+  }
+  // end of log-out function
+
 }
 

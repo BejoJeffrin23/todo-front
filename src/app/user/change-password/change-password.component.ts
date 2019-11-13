@@ -15,6 +15,7 @@ export class ChangePasswordComponent implements OnInit {
   public password1: any;
   public password: any;
   public issued: any;
+  public signuploader: boolean;
 
   constructor(public toastr: ToastrService, public Service: TodoService, public _route: ActivatedRoute, public router: Router) { }
 
@@ -33,6 +34,7 @@ export class ChangePasswordComponent implements OnInit {
       this.toastr.warning('Enter same password in both section')
     }
     else {
+      this.signuploader=false
       let data = {
         password: this.password,
       }

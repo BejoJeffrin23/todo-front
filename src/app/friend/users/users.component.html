@@ -13,7 +13,7 @@
                             <li routerLink="/{{userId}}/dash">home</li>
                             <li [routerLink]="['/request',userId]">friend-request</li>
                             <li  [routerLink]="['/friends',userId]" >firend-list</li>
-                            <li [routerLink]="['/signin']">logout</li>
+                            <li (click)="logout()">logout</li>
                           
                           </ul>
               
@@ -30,7 +30,7 @@
     
                             <div class="col-md-4"></div>
                             <div class="col-md-4">
-                              <h1 class="header">users</h1>
+                              <h1 class="header">USERS</h1>
                                 <div class="row center">
                                   <div class="table-responsive">
                                     <table class="table">
@@ -42,8 +42,8 @@
                                         <tbody>
                                           <tr *ngFor="let datas of data">
                                           
-                                            <td *ngIf="datas.userId !=userId"><p>{{datas.firstName}} {{datas.lastName}}</p></td>
-                                            <td  *ngIf="datas.userId !=userId"><a class="request" style="color:black;" (click)="sendrequest(datas.userId,datas.firstName,datas.lastName)">add friend</a></td>
+                                            <td *ngIf="datas.userId !=userId"><p style="color: aqua;">{{datas.firstName}} {{datas.lastName}}</p></td>
+                                            <td  *ngIf="datas.userId !=userId"><a class="request" style="color:black;" (click)="sendrequest(datas.userId,datas.firstName,datas.lastName)">Add friend <i class="fas fa-user-friends"></i></a></td>
                                         
                                           </tr>
                                         </tbody>

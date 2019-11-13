@@ -69,8 +69,6 @@ export class CreateComponent implements OnInit {
     this.service.logout().subscribe((apiResponse) => {
 
       if (apiResponse.status === 200) {
-        this.SocketService.disconnect()
-        this.SocketService.exitSocket()
         Cookie.delete('authToken');
         Cookie.delete('userName');
         Cookie.delete('userId')
